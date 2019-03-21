@@ -1,15 +1,27 @@
 package game;
-
+//Actor subclass for the player
 public class Player extends Actor{
+	//booleans to check the players proggress
 	private boolean foundDairy;
 	private boolean defeatedGoblin;
 	private boolean defeatedThrone;
 	private boolean knowsAnswerToRiddle;
 	private boolean clearedTreasureRoom;
+	public Player() {
+		//set the actor type to player
+		this.type = ActorType.PLAYER;
+	}
+	//function that resets the players stats to a new player
+	public void resetPLayerStats() {
+		health = 0;
+		strength = 0;
+		agility = 0;
+		smarts = 0;
+	}
+	//Getters and setters
 	public String getPlayerClass() {
 		return playerClass;
 	}
-
 	public void setPlayerClass(String playerClass) {
 		this.playerClass = playerClass;
 	}

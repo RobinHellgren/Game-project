@@ -13,7 +13,7 @@ public class PlayerStatusPanel extends JPanel {
 	private JTextField agiTextField;
 	private JTextField smrTextField;
 	/**
-	 * Create the panel.
+	 * Create the panel, created with window builder.
 	 */
 	public PlayerStatusPanel() {
 		setPreferredSize(new Dimension(180, 400));
@@ -84,6 +84,7 @@ public class PlayerStatusPanel extends JPanel {
 		add(lblPlayer);
 
 	}
+	//function that updates the fields.
 	public void updateField(Player player) {
 		nameTextField.setText(player.getName());
 		classTextField.setText(player.getPlayerClass());

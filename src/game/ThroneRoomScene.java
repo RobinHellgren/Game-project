@@ -7,19 +7,19 @@ import java.io.IOException;
 import javax.swing.JButton;
 
 import tools.TextFileReader;
-
+//uncleared version of the throne room
 public class ThroneRoomScene extends Scene {
 	public ThroneRoomScene(Player player) {
 		super(player);
 		try {
-			textPane.setText(TextFileReader.getInstance().readFile("ThoneRoome.txt"));
+			textPane.setText(TextFileReader.getInstance().readFile("ThroneRoom.txt"));
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
 		JButton treasureDoor = new JButton("Treaure door");
 		JButton questionDoor = new JButton("Questionmark door");
 
-		if(player.isKnowsAnswerToRiddle()) {
+		if(player.isFoundDairy() && !player.isKnowsAnswerToRiddle()) {
 			fireAppendTextEvent(new AppendTextEvent(this, "You see the bookcase mentioned by the servant"));
 			JButton bookcaseBtn = new JButton("Investigate bookcase");
 			bookcaseBtn.addActionListener(new ActionListener() {
@@ -31,6 +31,9 @@ public class ThroneRoomScene extends Scene {
 						e1.printStackTrace();
 					}
 					player.setKnowsAnswerToRiddle(true);
+					buttonPanel.remove(bookcaseBtn);
+					revalidate();
+					repaint();
 				}
 				
 			});

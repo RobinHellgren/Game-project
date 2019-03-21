@@ -7,17 +7,19 @@ import java.io.IOException;
 import javax.swing.JButton;
 
 import tools.TextFileReader;
-
+//the victory scene
 public class VictoryScene extends Scene{
 	public VictoryScene(Player player) {
 		super(player);
+		//read text from file
 		try {
 			textPane.setText(TextFileReader.getInstance().readFile("Victory.txt"));
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
+		//create button
 		JButton cont = new JButton("Victory!");
-		
+		//close the application
 		cont.addActionListener(new ActionListener() {
 
 			@Override
@@ -26,7 +28,7 @@ public class VictoryScene extends Scene{
 			}
 			
 		});
-
+		//add buttons to gui
 		buttonPanel.add(cont);
 
 	}

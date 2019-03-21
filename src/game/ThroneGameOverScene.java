@@ -7,17 +7,19 @@ import java.io.IOException;
 import javax.swing.JButton;
 
 import tools.TextFileReader;
-
+//subclass of scene for specific scene
 public class ThroneGameOverScene extends Scene{
 	public ThroneGameOverScene(Player player) {
 		super(player);
+		//try to read text from file
 		try {
 			textPane.setText(TextFileReader.getInstance().readFile("ThroneRoomGameOver.txt"));
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
+		//create button
 		JButton cont = new JButton("Restart");
-
+		//send the player to the start of the game
 		cont.addActionListener(new ActionListener() {
 
 			@Override
@@ -26,7 +28,7 @@ public class ThroneGameOverScene extends Scene{
 			}
 
 		});
-
+		//add buttons to the scene
 		buttonPanel.add(cont);
 
 	}

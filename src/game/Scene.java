@@ -8,13 +8,14 @@ import javax.swing.event.EventListenerList;
 import java.awt.Font;
 
 public class Scene extends JPanel {
+	//listener list to contain the listeners
 	private EventListenerList listenerList = new EventListenerList();
 	protected JTextPane textPane;
 	protected JPanel buttonPanel;
 	protected String textFileMapPath;
 	protected Player player;
 	/**
-	 * Create the panel.
+	 * Create the panel and instanziate the varibles.
 	 */
 	public Scene(Player player) {
 		setLayout(new BorderLayout(0, 0));
@@ -26,6 +27,7 @@ public class Scene extends JPanel {
 		add(scrollPane, BorderLayout.CENTER);
 		
 		textPane = new JTextPane();
+		//set font and font size of the text box
 		textPane.setFont(new Font("Lucida Bright", Font.PLAIN, 20));
 		textPane.setEditable(false);
 		scrollPane.setViewportView(textPane);
@@ -35,9 +37,11 @@ public class Scene extends JPanel {
 		
 
 	}
+	//getter
 	public JTextPane getTextPane() {
 		return textPane;
 	}
+	//add/remove functions for the listeners
 	public void addSwitchSceneListener(SwitchSceneListener listener) {
 		listenerList.add(SwitchSceneListener.class, listener);
 	}
@@ -56,6 +60,7 @@ public class Scene extends JPanel {
 	public void removeUpdateActorListener(UpdateActorStatusListener listener) {
 		listenerList.remove(UpdateActorStatusListener.class, listener);
 	}
+	//fire event functions to send events to the mainframe
 	protected void fireSwitchSceneEvent(SwitchSceneEvent event) {
 		//Creates an Object array which containts all the listeners
 		Object[] listeners = listenerList.getListenerList();

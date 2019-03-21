@@ -1,7 +1,7 @@
 package tools;
 
 import java.util.Random;
-
+//tool class with static functions that returns die roll values as ints, accepts an int parameter for the ammount of dice to roll
 public class DieBag {
 	public static int rolld6(int numberOfDie) {
 		Random rand = new Random();

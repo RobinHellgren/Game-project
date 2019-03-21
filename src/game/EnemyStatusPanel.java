@@ -10,7 +10,7 @@ public class EnemyStatusPanel extends JPanel {
 	private JTextField healthNameField;
 
 	/**
-	 * Create the panel.
+	 * Create the panel and its components, windowbuilder used to construct the gui.
 	 */
 	public EnemyStatusPanel() {
 		setPreferredSize(new Dimension(150, 400));
@@ -42,6 +42,7 @@ public class EnemyStatusPanel extends JPanel {
 		add(lblEnemy);
 
 	}
+	//Method used to update the fields
 	public void updateField(Actor enemy) {
 		nameTextField.setText(enemy.getName());
 		healthNameField.setText(enemy.getHealth().toString());

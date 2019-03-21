@@ -1,5 +1,5 @@
 package game;
-
+//Data structure that represents an actor in the game, this is a base class for the player and the enemies 
 public abstract class Actor {
 	protected String name;
 	protected String playerClass;
@@ -10,6 +10,7 @@ public abstract class Actor {
 	protected DieType damageDie;
 	protected ActorType type;
 	public Actor() {
+		//Initilizes the variables contained in the actor classes to prevent null pointer exceptions
 		super();
 		this.name = "";
 		this.strength = 0;
@@ -17,8 +18,9 @@ public abstract class Actor {
 		this.smarts = 0;
 		this.health = 0;
 		this.damageDie = null;
-		this.type = ActorType.PLAYER;
+		this.type = null;
 	}
+	//Getters and setters
 	public String getName() {
 		return name;
 	}
