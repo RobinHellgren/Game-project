@@ -15,26 +15,19 @@ public class IntroScene extends Scene{
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
-		JButton test1 = new JButton("test1");
-		JButton test2 = new JButton("test2");
+		JButton cont = new JButton("Continue");
 		
-		test1.addActionListener(new ActionListener() {
+		cont.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				fireSwitchSceneEvent(new SwitchSceneEvent(this, new TestScene1(player)));
+				fireSwitchSceneEvent(new SwitchSceneEvent(this, new ApproachScene(player)));
 			}
 			
 		});
-		test2.addActionListener(new ActionListener() {
 
-			public void actionPerformed(ActionEvent e) {
-				fireSwitchSceneEvent(new SwitchSceneEvent(this, new TestScene2(player)));
-			}
-			
-		});
-		buttonPanel.add(test1);
-		buttonPanel.add(test2);
+		buttonPanel.add(cont);
+
 	}
 
 }

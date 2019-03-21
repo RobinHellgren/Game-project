@@ -1,0 +1,12 @@
+First choose your species.
+
+Species:
+
+Human
+Humans have moderate agility and strength, but infinite creative capacity, and can learn to use any weapon or charmed item.
+
+Elf
+Elves have intense agility and fantastic vision and hearing, but moderate strength and creativity. Some charmed items and weapons are outside of their abilities.
+
+Dwarf
+Dwarves are incredibly strong and creative, able to use any weapon. They are slightly slower in combat and occasionally charms refuse to work for them.

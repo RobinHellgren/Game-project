@@ -21,36 +21,37 @@ public class CombatEngine {
 	}
 	public boolean attackAction(ActorType actor) {
 		boolean outcome = false;
+		int dieResult = DieBag.rolld20(1);
 		if (actor == ActorType.PLAYER) {
-			if (DieBag.rolld20(1) + player.getStrength() > enemyDefence) {
+			if (dieResult + player.getStrength() > enemyDefence) {
 				if (player.getDamageDie() == DieType.D6) {
-					damageDealt = (DieBag.rolld6(1) + (player.getStrength() / 2));
+					damageDealt = (DieBag.rolld6(1) + player.getStrength());
 					enemy.changeHealth(-damageDealt);
 					outcome = true;
 				} else if (player.getDamageDie() == DieType.D8) {
-					damageDealt = (DieBag.rolld8(1) + (player.getStrength() / 2));
+					damageDealt = (DieBag.rolld8(1) + player.getStrength());
 					enemy.changeHealth(-damageDealt);
 					outcome = true;
 				} else if (player.getDamageDie() == DieType.D10) {
-					damageDealt = (DieBag.rolld10(1) + (player.getStrength() / 2));
-					enemy.changeHealth(-(DieBag.rolld10(1) + (player.getStrength() / 2)));
+					damageDealt = (DieBag.rolld10(1) + player.getStrength());
+					enemy.changeHealth(-(DieBag.rolld10(1) + player.getStrength()));
 					outcome = true;
 				}
 			}
 
 		}
 		if (actor == ActorType.ENEMY) {
-			if (DieBag.rolld20(1) + enemy.getStrength() > playerDefence) {
-				if (player.getDamageDie() == DieType.D6) {
-					damageDealt = (DieBag.rolld6(1) + (enemy.getStrength() / 2));
+			if (dieResult + enemy.getStrength() > playerDefence) {
+				if (enemy.getDamageDie() == DieType.D6) {
+					damageDealt = (DieBag.rolld6(1) + enemy.getStrength());
 					player.changeHealth(-damageDealt);
 					outcome = true;
-				} else if (player.getDamageDie() == DieType.D8) {
-					damageDealt = (DieBag.rolld8(1) + (enemy.getStrength() / 2));
+				} else if (enemy.getDamageDie() == DieType.D8) {
+					damageDealt = (DieBag.rolld8(1) + enemy.getStrength());
 					player.changeHealth(-damageDealt);
 					outcome = true;
-				} else if (player.getDamageDie() == DieType.D10) {
-					damageDealt = (DieBag.rolld10(1) + (enemy.getStrength() / 2));
+				} else if (enemy.getDamageDie() == DieType.D10) {
+					damageDealt = (DieBag.rolld10(1) + enemy.getStrength());
 					player.changeHealth(-damageDealt);
 					outcome = true;
 				}

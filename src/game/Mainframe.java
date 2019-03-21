@@ -24,13 +24,12 @@ public class Mainframe {
 			frame.add(currentScene);
 			frame.revalidate();
 			frame.repaint();
-			System.out.println("Event: " + event.toString());	
 		}
 	};
 	private AppendTextListener appendListener = new AppendTextListener() {
 		@Override
 		public void appendTextEventOccured(AppendTextEvent event) {
-			currentScene.getTextPane().setText(currentScene.getTextPane().getText() + "/n /n" + event.getTextToAppend());
+			currentScene.getTextPane().setText(currentScene.getTextPane().getText() + "\n \n" + event.getTextToAppend());
 		}	
 	};
 	private UpdateActorStatusListener statusListener = new UpdateActorStatusListener() {
@@ -42,7 +41,7 @@ public class Mainframe {
 				playerPanel.repaint();
 				}
 			if(event.getType() == ActorType.ENEMY) {
-				enemyPanel.updateField((Enemy)event.getActor());
+				enemyPanel.updateField(event.getActor());
 				enemyPanel.revalidate();
 				enemyPanel.repaint();
 				}
@@ -82,6 +81,7 @@ public class Mainframe {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		player = new Player();
 		frame = new JFrame();
 		frame.setBounds(100, 100, 782, 597);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -90,11 +90,14 @@ public class Mainframe {
 		currentScene.addSwitchSceneListener(switchListener);
 		currentScene.addAppendTextListener(appendListener);
 		currentScene.addUpdateActorListener(statusListener);
+		currentScene.addUpdateActorListener(statusListener);
 		playerPanel = new PlayerStatusPanel();
 		enemyPanel = new EnemyStatusPanel();
 		frame.add(currentScene, BorderLayout.CENTER);
 		frame.add(enemyPanel, BorderLayout.EAST);
 		frame.add(playerPanel, BorderLayout.WEST);
+		
+		
 	}
 
 }

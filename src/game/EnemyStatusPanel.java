@@ -42,7 +42,7 @@ public class EnemyStatusPanel extends JPanel {
 		add(lblEnemy);
 
 	}
-	public void updateField(Enemy enemy) {
+	public void updateField(Actor enemy) {
 		nameTextField.setText(enemy.getName());
 		healthNameField.setText(enemy.getHealth().toString());
 	}

@@ -2,11 +2,23 @@ package game;
 
 public abstract class Actor {
 	protected String name;
+	protected String playerClass;
 	protected Integer strength;
 	protected Integer agility;
 	protected Integer smarts;
 	protected Integer health;
 	protected DieType damageDie;
+	protected ActorType type;
+	public Actor() {
+		super();
+		this.name = "";
+		this.strength = 0;
+		this.agility = 0;
+		this.smarts = 0;
+		this.health = 0;
+		this.damageDie = null;
+		this.type = ActorType.PLAYER;
+	}
 	public String getName() {
 		return name;
 	}
@@ -38,12 +50,15 @@ public abstract class Actor {
 		this.health += health;
 	}
 	public Integer getDefence(){
-		return 10+(agility/10);
+		return 10+(agility/3);
 	}
 	public DieType getDamageDie() {
 		return damageDie;
 	}
 	public void setDamageDie(DieType damageDie) {
 		this.damageDie = damageDie;
+	}
+	public ActorType getType() {
+		return type;
 	}
 }

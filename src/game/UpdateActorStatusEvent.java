@@ -8,6 +8,7 @@ public class UpdateActorStatusEvent extends EventObject{
 	public UpdateActorStatusEvent(Object source, Actor actor) {
 		super(source);
 		this.actor = actor;
+		this.type = actor.getType();
 	}
 	public Actor getActor() {
 		return actor;
