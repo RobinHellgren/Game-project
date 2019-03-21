@@ -1,0 +1,13 @@
+Now choose your class
+
+Class:
+
+Warrior
+Warriors are strong and adept with weapons, with moderate agility and creativity. They are treated with guarded respect, and often invited to join travelling parties as bodyguards.  
+
+
+Thief
+Thieves are incredibly agile and stealthy, see well in the dark, and find it easy to talk their way into locked rooms. However, there are many items specifically charmed against thieves. Their interactions with others are limited and wary.
+
+Cleric
+Clerics use the power of prayer to Old Gods to sway the outcome of events; this takes incredible intellect and focus, but leaves them lacking for speed and strength. People are often happy to see a cleric and treat them with respect.
