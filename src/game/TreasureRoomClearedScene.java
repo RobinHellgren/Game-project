@@ -24,7 +24,7 @@ public class TreasureRoomClearedScene extends Scene{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				fireSwitchSceneEvent(new SwitchSceneEvent(this, new TreasureRoomScene(player)));
+				fireSwitchSceneEvent(new SwitchSceneEvent(this, new DungeonRoomScene(player)));
 			}
 			
 		});
@@ -32,18 +32,17 @@ public class TreasureRoomClearedScene extends Scene{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(player.isDefeatedGoblin()) {
-				fireSwitchSceneEvent(new SwitchSceneEvent(this, new ClearedGoblinRoom(player)));	
+				if(player.isDefeatedThrone()) {
+				fireSwitchSceneEvent(new SwitchSceneEvent(this, new TreasureRoomClearedScene(player)));	
 				}
 				else {
-				fireSwitchSceneEvent(new SwitchSceneEvent(this, new GoblinCombatScene(player, new Goblin())));
+				fireSwitchSceneEvent(new SwitchSceneEvent(this, new TreasureRoomScene(player)));
 				}
 			}
 			
 		});
 
 		buttonPanel.add(left);
-		buttonPanel.add(middle);
 		buttonPanel.add(right);
 
 	}

@@ -20,7 +20,7 @@ public class DiningRoomScene extends Scene{
 		JButton ornateDoor = new JButton("Ornate door");
 
 		if(!player.isFoundDairy()) {
-			fireAppendTextEvent(new AppendTextEvent(this, "On the table a strange tome rests"));
+			fireAppendTextEvent(new AppendTextEvent(this, "Under one of the legs of the table theres a strange tome, balancing the table."));
 			JButton diaryBtn = new JButton("Strange tome");
 			diaryBtn.addActionListener(new ActionListener() {
 

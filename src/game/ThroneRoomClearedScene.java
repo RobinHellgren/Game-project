@@ -17,18 +17,48 @@ public class ThroneRoomClearedScene extends Scene{
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
-		JButton cont = new JButton("Continue");
-		
-		cont.addActionListener(new ActionListener() {
+		JButton treasureDoor = new JButton("Treaure door");
+		JButton questionDoor = new JButton("Questionmark door");
+
+		if(player.isKnowsAnswerToRiddle()) {
+			fireAppendTextEvent(new AppendTextEvent(this, "You see the bookcase mentioned by the servant"));
+			JButton bookcaseBtn = new JButton("Investigate bookcase");
+			bookcaseBtn.addActionListener(new ActionListener() {
+
+				public void actionPerformed(ActionEvent e) {
+					try {
+						fireAppendTextEvent(new AppendTextEvent(this, TextFileReader.getInstance().readFile("InvestigateBookcase.txt")));
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+					player.setKnowsAnswerToRiddle(true);
+				}
+				
+			});
+			buttonPanel.add(bookcaseBtn);
+		}		
+		treasureDoor.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				fireSwitchSceneEvent(new SwitchSceneEvent(this, new ApproachScene(player)));
+				if(player.isClearedTreasureRoom()) {
+				fireSwitchSceneEvent(new SwitchSceneEvent(this, new TreasureRoomClearedScene(player)));	
+				}
+				else {
+				fireSwitchSceneEvent(new SwitchSceneEvent(this, new TreasureRoomScene(player)));
+				}
 			}
 			
 		});
-
-		buttonPanel.add(cont);
+		questionDoor.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				fireSwitchSceneEvent(new SwitchSceneEvent(this, new RiddleRoomScene(player)));	
+			}
+			
+		});
+		buttonPanel.add(treasureDoor);
+		buttonPanel.add(questionDoor);
 
 	}
 
